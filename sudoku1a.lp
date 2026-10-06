@@ -7,6 +7,9 @@
 % Give each cell exactly one number from 1 to 4
 1 { sudoku(X,Y,N) : N = 1..4 } 1 :- X = 1..4, Y = 1..4.
 
+% Keep the numbers that are already given in the puzzle
+:- initial(X,Y,N), not sudoku(X,Y,N).
+
 % A number cannot appear more than once in the same row
 :- sudoku(X,Y1,N), sudoku(X,Y2,N), Y1 != Y2.
 
